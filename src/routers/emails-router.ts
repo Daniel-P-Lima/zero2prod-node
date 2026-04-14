@@ -1,10 +1,14 @@
 import { Router } from "express";
-import { getEmailById, getEmails, postEmails } from "../controllers/emails-controller.js";
+import {
+  httpGetEmailById,
+  httpGetEmails,
+  httpPostEmail,
+} from "../controllers/emails-controller.js";
 
 const emailsRouter = Router();
 
-emailsRouter.get("/", getEmails);
-emailsRouter.get("/:id", getEmailById)
-emailsRouter.post("/", postEmails);
+emailsRouter.get("/", httpGetEmails);
+emailsRouter.get("/:id", httpGetEmailById);
+emailsRouter.post("/", httpPostEmail);
 
 export default emailsRouter;
