@@ -11,7 +11,7 @@ function httpGetEmails(req: Request, res: Response) {
 }
 
 function httpGetEmailById(req: Request, res: Response) {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const email = getEmailById(id);
   return res.json(email);
 }

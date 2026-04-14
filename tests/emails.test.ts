@@ -15,7 +15,7 @@ describe("GET /emails", () => {
 describe("GET /emails/:id", () => {
   it("responds with json and email located", async () => {
     await request(app)
-      .get("/emails/1")
+      .get("/emails/8df42770-ae5d-44f4-8443-30fa015645ef")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect((res) => { 
