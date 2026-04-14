@@ -11,15 +11,14 @@ function getEmails() {
 
 function postEmails(email: string) {
   if (email.length > 0) {
-    const id = crypto.randomUUID();
     const emailObject = {
-      id: id,
+      id: crypto.randomUUID(),
       email: email,
     };
     emails.push(emailObject);
     return emailObject;
   } else {
-    return null;
+    return "Email length need to be greater than zero";
   }
 }
 
