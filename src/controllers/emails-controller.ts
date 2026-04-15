@@ -6,20 +6,15 @@ import {
 } from "../respositories/emails-respository.js";
 
 function httpGetEmails(req: Request, res: Response) {
-  const emails = getEmails();
-  return res.json(emails);
+  return res.json(getEmails());
 }
 
 function httpGetEmailById(req: Request, res: Response) {
-  const id = req.params.id;
-  const email = getEmailById(id);
-  return res.json(email);
+  return res.json(getEmailById(req.params.id));
 }
 
 function httpPostEmail(req: Request, res: Response) {
-  const email = String(req.body.email);
-  const emails = postEmails(email);
-  console.log(emails);
+  const emails = postEmails(String(req.body.email));
   return emails ? res.status(201).json(emails) : res.status(404).json(emails);
 }
 export { httpGetEmails, httpGetEmailById, httpPostEmail };
