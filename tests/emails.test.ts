@@ -15,11 +15,11 @@ describe("GET /emails", () => {
 describe("GET /emails/:id", () => {
   it("responds with json and email located", async () => {
     await request(app)
-      .get("/emails/8df42770-ae5d-44f4-8443-30fa015645ef")
+      .get("/emails/1")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect((res) => { 
-        expect(res.body.email).toEqual("test@email.com")
+        expect(res.body.email).toEqual("teste@gmail.com")
       })
       .expect(200);
   })
