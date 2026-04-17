@@ -1,1 +1,0 @@
-o services servem para aplicar as regras de negócio tipo a validação do if (emailObject) que retorna 404

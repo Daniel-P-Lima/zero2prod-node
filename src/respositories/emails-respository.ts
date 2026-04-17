@@ -1,30 +1,17 @@
-const emails = [
-  {
-    id: "8df42770-ae5d-44f4-8443-30fa015645ef",
-    email: "test@email.com",
-  },
-];
+import { prisma } from "../lib/prisma.js";
 
-function getEmails() {
-  return emails;
+async function getEmails() {
+  return prisma.email.findMany();
 }
 
-function postEmails(email: string) {
-  if (email.length > 0) {
-    const emailObject = {
-      id: crypto.randomUUID(),
-      email: email,
-    };
-    emails.push(emailObject);
-    return emailObject;
-  } else {
-    return "Email length need to be greater than zero";
-  }
+async function postEmails(email: string) {
+  return prisma.email.create({
+    data: { email },
+  });
 }
 
-function getEmailById(id: string) {
-  const emailObject = emails.find((element) => id == element.id);
-  return emailObject ? emailObject : null;
+async function getEmailById(id: number) {
+  return prisma.email.findUnique({ where: { id } });
 }
 
 export { getEmails, postEmails, getEmailById };

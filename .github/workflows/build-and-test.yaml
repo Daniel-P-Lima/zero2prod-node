@@ -12,7 +12,10 @@ jobs:
         - name: Update dependencies
           run: npm install
         
-        - name: run tests
+        - name: Run prisma generate client
+          run: npx prisma generate
+          
+        - name: Run npm tests
           run: npm test
   
     
